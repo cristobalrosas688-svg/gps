@@ -1,0 +1,375 @@
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --text: #1a2332;
+  --muted: #64748b;
+  --mavi: #0d47a1;
+  --tei: #00695c;
+  --egana: #8d4004;
+  --danger: #c62828;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  opacity: 0.85;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab {
+  padding: 0.6rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: #e2e8f0;
+}
+
+.tab.active[data-tab="mavi"] {
+  background: var(--mavi);
+  color: white;
+}
+
+.tab.active[data-tab="tei"] {
+  background: var(--tei);
+  color: white;
+}
+
+.tab.active[data-tab="egana"] {
+  background: var(--egana);
+  color: white;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.panel-header h2 {
+  font-size: 1.25rem;
+}
+
+.pdf-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pdf-month-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pdf-month-label input[type="month"] {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  min-width: 10rem;
+}
+
+form {
+  background: var(--surface);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.span-2 {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.ganancia-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.75rem;
+  background: #fef3e2;
+  border-radius: 8px;
+  border: 1px dashed var(--egana);
+}
+
+.ganancia-preview span {
+  font-size: 0.75rem;
+  color: var(--egana);
+  font-weight: 600;
+}
+
+.ganancia-preview strong {
+  font-size: 1.4rem;
+  color: var(--egana);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: #1e3a5f;
+  color: white;
+}
+
+#panel-mavi .btn-primary { background: var(--mavi); }
+#panel-tei .btn-primary { background: var(--tei); }
+.btn-egana { background: var(--egana); }
+
+.btn-pdf {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-pdf-egana {
+  background: var(--egana);
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid #fecaca;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.btn-delete:hover {
+  background: #fef2f2;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.card span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card strong {
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.card.highlight {
+  background: linear-gradient(135deg, #fef3e2, #fde68a);
+  border: 1px solid #f59e0b;
+}
+
+.card.highlight strong {
+  color: var(--egana);
+}
+
+.table-wrap {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.data-table th {
+  background: #f1f5f9;
+  padding: 0.65rem 0.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 0.6rem 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.data-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.ganancia-pos {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.ganancia-neg {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.empty-msg {
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #1e293b;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  animation: slideIn 0.3s ease;
+}
+
+.toast.error {
+  background: var(--danger);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
